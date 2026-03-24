@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Input from "./Input.jsx";
 
 export default function AuthInputs() {
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -21,36 +22,28 @@ export default function AuthInputs() {
   const passwordNotValid = submitted && enteredPassword.trim().length < 6;
 
   return (
-    <div id="auth-inputs">
-      <div className="controls">
-        <p className="paragraph">
-          <label className={`label ${emailNotValid ? "invalid" : ""}`}>
-            Email
-          </label>
-          <input
-            type="email"
-            // style={{
-            //   backgroundColor: emailNotValid ? "#fed2d2" : "#d1d5db",
-            // }}
-            className={emailNotValid ? "invalid" : undefined}
-            onChange={(event) => handleInputChange("email", event.target.value)}
-          />
-        </p>
-        <p>
-          <label className={`label ${emailNotValid ? "invalid" : ""}`}>
-            Password
-          </label>
-          <input
-            type="password"
-            className={passwordNotValid ? "invalid" : undefined}
-            onChange={(event) =>
-              handleInputChange("password", event.target.value)
-            }
-          />
-        </p>
+    <div
+      id="auth-inputs"
+      className="w-full mx-auto max-w-sm p-8 rounded shadow-md bg-gradient-to-b from-stone-700 to-stone-800 "
+    >
+      <div className="flex flex-col gap-3 mb-6 ">
+        <Input
+          label="Email"
+          invalid={emailNotValid}
+          type="email"
+          onChange={(event) => handleInputChange("email", event.target.value)}
+        ></Input>
+        <Input
+          label="Password"
+          invalid={passwordNotValid}
+          type="password"
+          onChange={(event) =>
+            handleInputChange("password", event.target.value)
+          }
+        ></Input>
       </div>
-      <div className="actions">
-        <button type="button" className="text-button">
+      <div className="flex justify-end gap-4 ">
+        <button type="button" className="text-amber-400  hover:text-amber-500">
           Create a new account
         </button>
         <button className="button" onClick={handleLogin}>
