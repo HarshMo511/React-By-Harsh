@@ -1,6 +1,58 @@
+import { useActionState, useLayoutEffect } from "react";
+
+import {
+  isEmail,
+  isNotEmpty,
+  isEqualToOtherValue,
+  hasMinLength,
+} from "../util/validation.js";
+
 export default function Signup() {
+  function signupAction(prevFormState, formData) {
+    const email = formData.get("email");
+    const password = formData.get("password");
+    const confirmPassword = formData.get("confirm-password");
+    const firstName = formData.get("first-name");
+    const lastName = formData.get("last-name");
+    const role = formData.get("role");
+    const terms = formData.get("terms");
+    const acquisitionChannel = formData.getAll("acquisition");
+
+    let error = [];
+
+    if (!isEmail(email)) {
+      error.push("Invalid email address.");
+    }
+    if (!isNotEmpty(password) || !hasMinLength(password, 6)) {
+      error.push("Yoy must provide a pasword with at least six character.");
+    }
+    if (!isEqualToOtherValue(password, confirmPassword)) {
+      error.push("Password do not match.");
+    }
+    if (!isNotEmpty(firstName) || isNotEmpty(lastName)) {
+      error.push("Please provide both your first and last name.");
+    }
+    if (!isNotEmpty(role)) {
+      error.push("Please select a role.");
+    }
+    if (!terms) {
+      error.push("You must agree to the term and condition.");
+    }
+    if (acquisitionChannel.length === 0) {
+      error.push("Please select at least one acquisition channel.");
+    }
+    if (error.length > 0) {
+      return { error };
+    }
+    return { error: null };
+  }
+
+  const [formState, formAction] = useActionState(signupAction, {
+    error: null,
+  });
+
   return (
-    <form>
+    <form action={formAction}>
       <h2>Welcome on board!</h2>
       <p>We just need a little bit of data from you to get you started 🚀</p>
 
@@ -84,6 +136,14 @@ export default function Signup() {
           agree to the terms and conditions
         </label>
       </div>
+
+      {formState.error && (
+        <ul className="error">
+          {formState.error.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
+      )}
 
       <p className="form-actions">
         <button type="reset" className="button button-flat">
