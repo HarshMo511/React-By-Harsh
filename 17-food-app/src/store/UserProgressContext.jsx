@@ -9,7 +9,7 @@ const UserProgressContext = createContext({
 });
 
 export function UserProgressContextProvider({ children }) {
-  const [userProgress, setUserprogress] = useState();
+  const [userProgress, setUserprogress] = useState("");
 
   function showCart() {
     setUserprogress("cart");
