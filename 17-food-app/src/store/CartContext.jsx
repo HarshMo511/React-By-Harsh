@@ -67,7 +67,6 @@ export function CartContextProvider({ children }) {
     addItem,
     removeItem,
   };
-  console.log(cartContextValue);
 
   return (
     <CartContext.Provider value={cartContextValue}>
