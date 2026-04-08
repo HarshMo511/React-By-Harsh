@@ -33,6 +33,8 @@ const Counter = () => {
   );
 };
 
+export default Counter;
+
 // class Counter extends Component {
 //   incrementHandler() {
 //     this.props.increment();
@@ -59,17 +61,17 @@ const Counter = () => {
 //   }
 // }
 
-const mapStateToProps = (state) => {
-  return {
-    counter: state.counter,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     counter: state.counter,
+//   };
+// };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    increment: () => dispatch({ type: "increment" }),
-    decrement: () => dispatch({ type: "decrement" }),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     increment: () => dispatch({ type: "increment" }),
+//     decrement: () => dispatch({ type: "decrement" }),
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+// export default connect(mapStateToProps, mapDispatchToProps)(Counter);
