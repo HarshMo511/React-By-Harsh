@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///D:/React/28-know-nextjs/pages/news/something-important.js"],"sourcesContent":["// our-domain.com/something-important\r\n\r\nfunction DetailPage() {\r\n  return <h1>The Detail Page</h1>;\r\n}\r\n\r\nexport default DetailPage;\r\n"],"names":["DetailPage"],"mappings":";;;;;;AAAA,qCAAqC;AAErC,SAASA;IACP,qBAAO,qKAAC;kBAAG;;;;;;AACb;uCAEeA"}}]
+}

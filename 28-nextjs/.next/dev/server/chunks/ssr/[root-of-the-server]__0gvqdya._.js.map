@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///D:/React/28-know-nextjs/pages/news/index.js"],"sourcesContent":["// our-domain.com/news\r\n\r\nfunction NewsPage() {\r\n  return <h1>The News Page</h1>;\r\n}\r\n\r\nexport default NewsPage;\r\n"],"names":["NewsPage"],"mappings":";;;;;;AAAA,sBAAsB;AAEtB,SAASA;IACP,qBAAO,qKAAC;kBAAG;;;;;;AACb;uCAEeA"}}]
+}
